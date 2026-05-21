@@ -1,0 +1,7 @@
+# 이 파일을 복사해서 key.properties 로 저장하고 아래 값을 채워주세요.
+# key.properties 는 절대 GitHub에 올리면 안 됩니다! (.gitignore 처리 필요)
+
+keyAlias=eodigo
+keyPassword=YOUR_KEY_PASSWORD
+storeFile=../android.keystore
+storePassword=YOUR_STORE_PASSWORD

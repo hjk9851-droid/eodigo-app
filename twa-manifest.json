@@ -1,0 +1,50 @@
+{
+  "packageId": "com.juchan.eodigo",
+  "host": "heartfelt-griffin-2dc6c0.netlify.app",
+  "name": "어디고?",
+  "launcherName": "어디고?",
+  "display": "standalone",
+  "orientation": "portrait",
+  "themeColor": "#1976D2",
+  "navigationColor": "#1976D2",
+  "navigationColorDark": "#0D47A1",
+  "navigationDividerColor": "#1976D2",
+  "navigationDividerColorDark": "#0D47A1",
+  "backgroundColor": "#FFFFFF",
+  "enableNotifications": false,
+  "startUrl": "/",
+  "iconUrl": "https://heartfelt-griffin-2dc6c0.netlify.app/icon.svg",
+  "maskableIconUrl": "https://heartfelt-griffin-2dc6c0.netlify.app/icon.svg",
+  "monochromeIconUrl": "https://heartfelt-griffin-2dc6c0.netlify.app/icon.svg",
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://heartfelt-griffin-2dc6c0.netlify.app/manifest.json",
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://heartfelt-griffin-2dc6c0.netlify.app/",
+  "minSdkVersion": 19,
+  "targetSdkVersion": 34,
+  "appVersionCode": 1,
+  "appVersionName": "1.0.0",
+  "signingKey": {
+    "path": "android.keystore",
+    "alias": "eodigo"
+  },
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "features": {
+    "locationDelegation": {
+      "enabled": false
+    },
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isSplashScreenEnabled": true,
+  "splashScreenFadeOutDuration": 300,
+  "generatedAppVersion": "1.0.0"
+}

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 배경 (둥근 정사각형) -->
+  <rect width="512" height="512" rx="110" fill="#1976D2"/>
+
+  <!-- 말풍선 -->
+  <rect x="60" y="60" width="392" height="310" rx="50" fill="white"/>
+  <!-- 말풍선 꼬리 -->
+  <polygon points="120,370 80,450 200,370" fill="white"/>
+
+  <!-- 버스 (왼쪽) -->
+  <rect x="88" y="100" width="148" height="100" rx="16" fill="#1976D2"/>
+  <!-- 버스 창문 -->
+  <rect x="100" y="116" width="38" height="28" rx="6" fill="white"/>
+  <rect x="148" y="116" width="38" height="28" rx="6" fill="white"/>
+  <rect x="196" y="116" width="28" height="28" rx="6" fill="white"/>
+  <!-- 버스 앞면 선 -->
+  <rect x="88" y="155" width="148" height="3" rx="1" fill="rgba(255,255,255,0.4)"/>
+  <!-- 버스 바퀴 -->
+  <circle cx="120" cy="205" r="18" fill="#0D47A1"/>
+  <circle cx="120" cy="205" r="9" fill="white"/>
+  <circle cx="210" cy="205" r="18" fill="#0D47A1"/>
+  <circle cx="210" cy="205" r="9" fill="white"/>
+  <!-- 버스 글자 -->
+  <rect x="88" y="164" width="148" height="24" rx="0" fill="rgba(0,0,0,0.1)"/>
+
+  <!-- 구분 선 -->
+  <rect x="252" y="90" width="4" height="220" rx="2" fill="#E3F2FD"/>
+
+  <!-- 지하철 (오른쪽) -->
+  <rect x="272" y="100" width="168" height="100" rx="16" fill="#C62828"/>
+  <!-- 지하철 창문 -->
+  <rect x="284" y="116" width="30" height="38" rx="8" fill="white"/>
+  <rect x="380" y="116" width="30" height="38" rx="8" fill="white"/>
+  <!-- 지하철 중간 통로 선 -->
+  <rect x="284" y="167" width="136" height="4" rx="2" fill="rgba(255,255,255,0.5)"/>
+  <!-- 지하철 바퀴 -->
+  <circle cx="302" cy="207" r="16" fill="#8B0000"/>
+  <circle cx="302" cy="207" r="8" fill="white"/>
+  <circle cx="412" cy="207" r="16" fill="#8B0000"/>
+  <circle cx="412" cy="207" r="8" fill="white"/>
+
+  <!-- "어디고?" 텍스트 영역 - 말풍선 하단 -->
+  <rect x="100" y="250" width="312" height="90" rx="12" fill="#E3F2FD"/>
+  <!-- 마이크 아이콘 (텍스트 대신) -->
+  <rect x="220" y="262" width="36" height="54" rx="18" fill="#1976D2"/>
+  <path d="M196 300 C196 328 316 328 316 300" stroke="#1976D2" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <line x1="238" y1="328" x2="238" y2="318" stroke="#1976D2" stroke-width="10" stroke-linecap="round"/>
+  <line x1="222" y1="318" x2="254" y2="318" stroke="#1976D2" stroke-width="10" stroke-linecap="round"/>
+  <!-- 점 3개 (말하는 중 표시) -->
+  <circle cx="282" cy="286" r="7" fill="#1976D2"/>
+  <circle cx="302" cy="286" r="7" fill="#1976D2"/>
+  <circle cx="322" cy="286" r="7" fill="#1976D2"/>
+</svg>
