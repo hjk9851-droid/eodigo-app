@@ -9,14 +9,14 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 34
-    buildToolsVersion "34.0.0"
+    compileSdkVersion 35
+    buildToolsVersion "35.0.0"
     namespace "com.juchan.eodigo"
 
     defaultConfig {
         applicationId "com.juchan.eodigo"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0.0"
     }
