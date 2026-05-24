@@ -17,8 +17,8 @@ android {
         applicationId "com.juchan.eodigo"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.1.0"
     }
 
     signingConfigs {
@@ -53,5 +53,4 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
 }

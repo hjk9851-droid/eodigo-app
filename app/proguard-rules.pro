@@ -1,2 +1,3 @@
--keep class com.google.androidbrowserhelper.** { *; }
--keep class androidx.browser.** { *; }
+-keep class com.juchan.eodigo.** { *; }
+-keepclassmembers class * extends android.webkit.WebViewClient { *; }
+-keepclassmembers class * extends android.webkit.WebChromeClient { *; }
