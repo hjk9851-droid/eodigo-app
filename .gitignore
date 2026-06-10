@@ -10,4 +10,6 @@
 *.keystore
 android.keystore
 key.properties
+keystore_base64.txt
 node_modules
+/app/build
