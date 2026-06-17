@@ -17,7 +17,7 @@ android {
         applicationId "com.juchan.eodigo"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 7
+        versionCode 8
         versionName "1.1.1"
     }
 
