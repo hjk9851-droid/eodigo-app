@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
 import android.webkit.PermissionRequest;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
     private SpeechRecognizer speechRecognizer;
+    private TextToSpeech tts;
+    private boolean ttsReady = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,23 @@ public class MainActivity extends AppCompatActivity {
 
         requestAppPermissions();
         setupWebView();
+        setupTts();
+    }
+
+    private void setupTts() {
+        tts = new TextToSpeech(this, status -> {
+            if (status == TextToSpeech.SUCCESS && tts != null) {
+                tts.setLanguage(Locale.KOREAN);
+                ttsReady = true;
+            }
+        });
+    }
+
+    private void speakText(String text) {
+        if (text == null || text.trim().isEmpty()) return;
+        if (tts == null || !ttsReady) return;
+        tts.stop();
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "eodigo_tts");
     }
 
     private void requestAppPermissions() {
@@ -94,10 +115,15 @@ public class MainActivity extends AppCompatActivity {
         webView.loadUrl(URL);
     }
 
+    // 뒤로가기는 전부 웹(index.html)의 화면 전환 로직에 위임한다.
+    // 이 앱은 단일 페이지(SPA)라서 webView.canGoBack()이 항상 false이므로
+    // 네이티브 히스토리 대신 JS의 handleBackPress()가 메인 화면 더블탭 종료 /
+    // 화면별 이전 화면 이동을 처리하고, 종료가 필요하면 AndroidBridge.exitApp()을 호출한다.
     @Override
     public void onBackPressed() {
-        if (webView != null && webView.canGoBack()) {
-            webView.goBack();
+        if (webView != null) {
+            webView.evaluateJavascript(
+                    "window.handleBackPress && window.handleBackPress()", null);
         } else {
             super.onBackPressed();
         }
@@ -122,13 +148,28 @@ public class MainActivity extends AppCompatActivity {
             speechRecognizer.destroy();
             speechRecognizer = null;
         }
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+            tts = null;
+        }
     }
 
-    // JavaScript에서 window.AndroidBridge.startVoice() 로 호출하는 네이티브 음성인식 브릿지
+    // JavaScript에서 window.AndroidBridge.* 로 호출하는 네이티브 브릿지
     private class AndroidBridge {
         @JavascriptInterface
         public void startVoice() {
             runOnUiThread(MainActivity.this::startSpeechRecognition);
+        }
+
+        @JavascriptInterface
+        public void speak(String text) {
+            runOnUiThread(() -> speakText(text));
+        }
+
+        @JavascriptInterface
+        public void exitApp() {
+            runOnUiThread(MainActivity.this::finishAffinity);
         }
     }
 
