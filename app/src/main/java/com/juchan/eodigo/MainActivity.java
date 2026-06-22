@@ -167,6 +167,12 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(() -> speakText(text));
         }
 
+        // 자막 X 버튼 / 뒤로가기로 소리로 듣기를 중단할 때 호출됨
+        @JavascriptInterface
+        public void stopSpeak() {
+            runOnUiThread(() -> { if (tts != null) tts.stop(); });
+        }
+
         @JavascriptInterface
         public void exitApp() {
             runOnUiThread(MainActivity.this::finishAffinity);
